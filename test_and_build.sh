@@ -19,7 +19,6 @@ for x in $(go list -e -f '{{.ImportComment}}'  ./...);
 do
     echo ">> Running tests for $x"
     go test -coverprofile=profile.out -v $x|go-junit-report -set-exit-code>${x##*/}.xml;
-    echo "result RRRR $?"
     if [ $? -ne 0  ]; then
       echo "Test failed for $x"
       exit $?
