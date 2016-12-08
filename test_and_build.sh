@@ -7,7 +7,7 @@ source /build_environment.sh
 
 # Compile statically linked version of package
 echo "Building $pkgName"
-`CGO_ENABLED=${CGO_ENABLED:-0} go build ${FLAGS:-} --ldflags="${LDFLAGS:-}" --gcflags "${LDFLAGS:--N -l}" $pkgName`
+`CGO_ENABLED=${CGO_ENABLED:-0} go build -a ${FLAGS:-} --ldflags="${LDFLAGS:-}" --gcflags "${GCFLAGS:--N -l}" $pkgName`
 
 
 # Run tests and compute coverage
